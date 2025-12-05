@@ -1,7 +1,13 @@
 export default {
   extends: ['stylelint-config-standard', 'stylelint-config-tailwindcss'],
   plugins: ['stylelint-order'],
-  ignoreFiles: ['docs/**', 'dist/**', 'public/**', 'src/assets/img/**', 'src/shared/configs/**'],
+  ignoreFiles: [
+    'docs/**',
+    'dist/**',
+    'public/**',
+    'src/assets/img/**',
+    'src/shared/configs/**',
+  ],
   rules: {
     // properties 정렬 규칙
     'order/properties-order': [

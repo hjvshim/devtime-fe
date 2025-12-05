@@ -62,11 +62,17 @@ export default defineConfig([
       'tsdoc/tsdoc-reference-missing-hash': ['off'],
     },
   },
-  { files: ['**/*.{js,mjs,cjs,jsx}'], extends: [tseslint.configs.disableTypeChecked] },
+  {
+    files: ['**/*.{js,mjs,cjs,jsx}'],
+    extends: [tseslint.configs.disableTypeChecked],
+  },
   {
     files: ['**/*.{test,spec}.{js,jsx,ts,tsx}'],
     ...jest.configs['flat/recommended'],
-    rules: { ...jest.configs['flat/recommended'].rules, 'jest/prefer-expect-assertions': 'off' },
+    rules: {
+      ...jest.configs['flat/recommended'].rules,
+      'jest/prefer-expect-assertions': 'off',
+    },
   },
   eslintConfigPrettier, // ESLint에서 formatting 관련 규칙 비활성화 - formatting은 prettier로 처리
 ]);
