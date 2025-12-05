@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "format": "prettier -c ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --check .",
-    "format:write": "prettier -c ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write .",
+    "format": "prettier --config ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --check .",
+    "format:write": "prettier --config ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write .",
     "lint": "eslint . -c ./src/shared/configs/eslint.config.mjs --max-warnings=0",
     "lint:fix": "eslint . -c ./src/shared/configs/eslint.config.mjs --fix --max-warnings=0",
     "lint:css": "stylelint -c ./src/shared/configs/stylelint.config.mjs \"src/**/*.css\" --max-warnings=0",
@@ -19,11 +19,11 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "eslint -c ./src/shared/configs/eslint.config.js --fix --max-warnings=0",
-      "prettier -c ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write"
+      "prettier --config ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write"
     ],
     "**/*.{css, js, jsx, ts, tsx}": [
       "stylelint -c ./src/shared/configs/stylelint.config.mjs --fix",
-      "prettier -c ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write"
+      "prettier --config ./src/shared/configs/prettier.config.js --ignore-path ./src/shared/configs/.prettierignore --write"
     ]
   },
   "dependencies": {

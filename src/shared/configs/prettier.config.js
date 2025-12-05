@@ -2,7 +2,7 @@
  * @see https://prettier.io/docs/configuration
  */
 const config = {
-  printWidth: 120,
+  printWidth: 80,
   tabWidth: 2,
   useTabs: false,
   semi: true,
