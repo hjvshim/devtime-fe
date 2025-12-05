@@ -1,0 +1,11 @@
+echo "================= Running pre-commit hooks..."
+
+echo "======= Running format:write..."
+yarn run format:write
+echo "======= Running lint:fix..."
+yarn run lint:fix
+echo "======= Running lint:css:fix..."
+yarn run lint:css:fix
+echo "======= Running lint-staged..."
+npx lint-staged || echo "Lint failed" 
+echo "================= Pre-commit hooks completed"
