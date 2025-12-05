@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
 
+import js from '@eslint/js';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
@@ -32,12 +33,15 @@ export default defineConfig([
         version: 'detect', // 설치된 버전 자동으로 감지
       },
     },
-    plugins: { tsdoc, react: reactPlugin, 'react-hooks': reactHooks, 'react-refresh': reactRefresh, 'jsx-a11y': jsxA11y, jest, 'query': pluginQuery },
+    plugins: { tsdoc, jest },
     extends: [
+      js.configs.recommended,
       tseslint.configs.recommended,
-      reactPlugin.configs.flat['jsx-runtime'], 
-      reactRefresh.configs.vite, 
+      reactPlugin.configs.flat['jsx-runtime'],
+      reactRefresh.configs.vite,
+      reactHooks.configs.flat.recommended,
       pluginQuery.configs['flat/recommended'],
+      jsxA11y.flatConfigs.recommended,
     ],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -55,9 +59,14 @@ export default defineConfig([
       'no-console': ['warn', { allow: ['info', 'debug', 'warn', 'error'] }],
       semi: ['error', 'always'],
       'tsdoc/syntax': 'warn',
+      'tsdoc/tsdoc-reference-missing-hash': ['off'],
     },
   },
   { files: ['**/*.{js,mjs,cjs,jsx}'], extends: [tseslint.configs.disableTypeChecked] },
-  { files: ['**/*.{test,spec}.{js,jsx,ts,tsx}'], ...jest.configs['flat/recommended'] },
+  {
+    files: ['**/*.{test,spec}.{js,jsx,ts,tsx}'],
+    ...jest.configs['flat/recommended'],
+    rules: { ...jest.configs['flat/recommended'].rules, 'jest/prefer-expect-assertions': 'off' },
+  },
   eslintConfigPrettier, // ESLint에서 formatting 관련 규칙 비활성화 - formatting은 prettier로 처리
 ]);
