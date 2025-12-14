@@ -26,6 +26,7 @@ dist
 
 # Config Files
 /shared/configs/*
+.coderabbit.yaml
 
 # Others
 public
