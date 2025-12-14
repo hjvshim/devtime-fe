@@ -1,0 +1,47 @@
+@theme {
+  /* Primary Colors */
+  --color-primary: #4c79ff;
+  --color-primary-10: rgb(76 121 255 / 10%);
+  --color-primary-30: rgb(76 121 255 / 30%);
+  --color-primary-gradient-start: #4c79ff;
+  --color-primary-gradient-end: #023e99;
+
+  /* Secondary Colors */
+  --color-indigo: #023e99;
+  --color-indigo-light: #a3c3ff;
+  --color-informative: #2563eb;
+  --color-informative-light: #2563eb;
+  --color-negative: #dc2626;
+  --color-negative-light: #dc2626;
+  --color-notice: #fbb724;
+  --color-notice-light: #fbb724;
+  --color-positive: #22c55e;
+  --color-positive-light: #22c55e;
+  --color-fuchsia: #fd28ec;
+  --color-fuchsia-light: #fd28ec;
+
+  /* Gray Scale */
+  --color-white: #fff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f0f2f5;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #ccd0d6;
+  --color-gray-400: #969aa8;
+  --color-gray-500: #717b87;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #394252;
+  --color-gray-800: #1f2937;
+
+  /* State Colors */
+  --color-disabled: var(--color-gray-400);
+  --color-primary-hover: color-mix(in srgb, #4c79ff 90%, black 10%);
+  --color-primary-active: color-mix(in srgb, #4c79ff 90%, black 10%);
+  --color-focus: #4c79ff;
+
+  /* ETC */
+  --color-dim-50: rgb(0 0 0 / 50%);
+  --color-dim-70: rgb(0 0 0 / 70%);
+  --color-border: var(--color-gray-300);
+  --color-shadow-1: #000;
+  --color-shadow-2: #000;
+}
