@@ -2,14 +2,13 @@
  * Route 경로 상수
  */
 export const ROUTES = {
-  // 공개 페이지
-  HOME: '/',
+  // 공개 페이지 (비로그인 사용자 접근 가능)
   LOGIN: '/login',
   SIGNUP: '/signup',
 
   // 인증 필요 페이지
+  HOME: '/', // 타이머 페이지
   PROFILE_SETUP: '/profile-setup',
-  TIMER: '/timer',
   DASHBOARD: '/dashboard',
   RANKING: '/ranking',
   MYPAGE: '/mypage',
@@ -23,18 +22,14 @@ export type Route = (typeof ROUTES)[keyof typeof ROUTES];
 /**
  * 공개 라우트 (로그인 불필요)
  */
-export const PUBLIC_ROUTES: Route[] = [
-  ROUTES.HOME,
-  ROUTES.LOGIN,
-  ROUTES.SIGNUP,
-];
+export const PUBLIC_ROUTES: Route[] = [ROUTES.LOGIN, ROUTES.SIGNUP];
 
 /**
  * 인증 필요 라우트 (로그인 필요)
  */
 export const PROTECTED_ROUTES: Route[] = [
+  ROUTES.HOME,
   ROUTES.PROFILE_SETUP,
-  ROUTES.TIMER,
   ROUTES.DASHBOARD,
   ROUTES.RANKING,
   ROUTES.MYPAGE,
@@ -45,7 +40,7 @@ export const PROTECTED_ROUTES: Route[] = [
  */
 export const AUTH_REDIRECT_ROUTES = {
   FIRST_LOGIN: ROUTES.PROFILE_SETUP,
-  DEFAULT: ROUTES.TIMER,
+  DEFAULT: ROUTES.HOME,
 } as const;
 
 /**
