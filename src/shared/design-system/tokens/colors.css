@@ -34,8 +34,13 @@
 
   /* State Colors */
   --color-disabled: var(--color-gray-400);
-  --color-primary-hover: color-mix(in srgb, #4c79ff 90%, black 10%);
-  --color-primary-active: color-mix(in srgb, #4c79ff 90%, black 10%);
+  --color-primary-state: color-mix(in srgb, #4c79ff 90%, black 10%);
+  --color-primary-10-state: color-mix(
+    in srgb,
+    rgb(76 121 255 / 10%) 90%,
+    black 10%
+  );
+  --color-gray-50-state: color-mix(in srgb, #f9fafb 90%, black 10%);
   --color-focus: #4c79ff;
 
   /* ETC */
