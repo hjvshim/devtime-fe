@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+/* Pretendard Variable Font - Local */
+@import './fonts.css';
+
+/* Design System Tokens */
+@import '@/shared/design-system/tokens/index.css';
