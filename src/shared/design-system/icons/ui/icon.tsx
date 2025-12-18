@@ -23,7 +23,10 @@ const Icon = ({
 }: IconProps) => {
   const iconSize = ICON_SIZES[size];
   const variantSuffix = variant === 'outlined' ? '-outlined' : '';
-  const iconPath = `/src/shared/design-system/icons/assets/${name}${variantSuffix}.svg`;
+  const iconPath = new URL(
+    `../assets/${name}${variantSuffix}.svg`,
+    import.meta.url,
+  ).href;
 
   return (
     <img
