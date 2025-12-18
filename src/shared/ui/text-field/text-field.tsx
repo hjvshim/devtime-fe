@@ -3,17 +3,13 @@ import type { TextFieldProps } from './text-field.type';
 
 const TextField = ({
   label,
-  placeholder,
-  value = '',
-  onChange,
-  type = 'text',
-  disabled = false,
   error,
   buttonText,
   onButtonClick,
   buttonDisabled = false,
   className = '',
-  id,
+  onChange,
+  ...inputProps
 }: TextFieldProps) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -25,19 +21,18 @@ const TextField = ({
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
-      <label htmlFor={id} className="text-body-small-m text-gray-600">
+      <label
+        htmlFor={inputProps.id}
+        className="text-body-small-m text-gray-600"
+      >
         {label}
       </label>
 
       <div className="flex gap-3 items-center">
         {/* 입력 필드 */}
         <input
-          id={id}
-          type={type}
-          value={value}
+          {...inputProps}
           onChange={handleInputChange}
-          placeholder={placeholder}
-          disabled={disabled}
           className={`
             ${hasButton ? 'flex-1' : 'w-full'}
             h-11 px-4 py-3
@@ -46,7 +41,7 @@ const TextField = ({
             text-body-m
             placeholder:text-gray-300
             transition-colors duration-200
-            ${disabled ? 'cursor-not-allowed opacity-60' : ''}
+            ${inputProps.disabled ? 'cursor-not-allowed opacity-60' : ''}
             ${error ? 'border border-negative' : 'border-0'}
             focus:outline-none focus:ring-2 focus:ring-primary
           `}
@@ -57,7 +52,7 @@ const TextField = ({
           <Button
             type="button"
             onClick={onButtonClick}
-            disabled={buttonDisabled || disabled}
+            disabled={buttonDisabled || inputProps.disabled}
             variant="primary"
             size="auto"
             className="h-11"
