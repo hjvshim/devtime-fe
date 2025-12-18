@@ -46,7 +46,7 @@ const Checkbox = ({
       return `${baseStyles} bg-white border-primary hover:border-primary-hover focus-within:ring-2 focus-within:ring-fuchsia`;
     }
 
-    // TODO 타입
+    // todo 타입
     if (checked) {
       return `${baseStyles} bg-white/50 border-white hover:bg-white/60`;
     }

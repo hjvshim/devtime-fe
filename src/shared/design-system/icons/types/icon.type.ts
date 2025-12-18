@@ -13,8 +13,8 @@ export type IconName =
   | 'more'
   | 'logout'
   | 'user'
-  | 'TODO'
-  | 'Reset';
+  | 'todo'
+  | 'reset';
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
