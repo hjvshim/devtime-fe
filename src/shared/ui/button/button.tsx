@@ -3,15 +3,21 @@ import type { ButtonProps } from './button.type';
 const Button = ({
   variant = 'primary',
   size = 'auto',
+  textSize = 'default',
   disabled = false,
   children,
   onClick,
   type = 'button',
   className = '',
 }: ButtonProps) => {
+  // Text size & height config
+  const textSizeConfig = {
+    default: 'h-12 text-subtitle-s', // 48px height, 18px font
+    small: 'h-11 text-body-small-s', // 44px height, 14px font
+  };
+
   // Base styles
-  const baseStyles =
-    'h-12 px-4 py-3 rounded-[5px] text-subtitle-s transition-colors duration-200 focus:outline-none';
+  const baseStyles = `${textSizeConfig[textSize]} px-4 py-3 rounded-[5px] transition-colors duration-200 focus:outline-none`;
 
   // Size styles
   const sizeStyles = {

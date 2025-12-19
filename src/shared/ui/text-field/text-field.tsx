@@ -55,7 +55,7 @@ const TextField = ({
             disabled={buttonDisabled || inputProps.disabled}
             variant="primary"
             size="auto"
-            className="h-11"
+            textSize="small"
           >
             {buttonText}
           </Button>
