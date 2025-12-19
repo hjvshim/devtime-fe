@@ -8,6 +8,8 @@ const Checkbox = ({
   onChange,
   className = '',
   label,
+  labelPosition = 'right',
+  labelClassName = '',
   id,
 }: CheckboxProps) => {
   const handleChange = () => {
@@ -60,40 +62,52 @@ const Checkbox = ({
     return 'text-primary';
   };
 
+  // 체크박스 엘리먼트
+  const checkboxElement = (
+    <div
+      role="checkbox"
+      aria-checked={checked}
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : 0}
+      onClick={handleChange}
+      onKeyDown={handleKeyDown}
+      className={getCheckboxStyles()}
+    >
+      {checked && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Icon name="check" size="xs" className={getIconColor()} />
+        </div>
+      )}
+      <input
+        type="checkbox"
+        id={id}
+        checked={checked}
+        disabled={disabled}
+        onChange={handleChange}
+        className="sr-only"
+        aria-hidden="true"
+      />
+    </div>
+  );
+
+  // 라벨 엘리먼트
+  const labelElement = label && (
+    <label
+      htmlFor={id}
+      className={
+        labelClassName ||
+        `text-body-m ${disabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-800 cursor-pointer'}`
+      }
+    >
+      {label}
+    </label>
+  );
+
   return (
     <div className={`inline-flex items-center gap-2 ${className}`}>
-      <div
-        role="checkbox"
-        aria-checked={checked}
-        aria-disabled={disabled}
-        tabIndex={disabled ? -1 : 0}
-        onClick={handleChange}
-        onKeyDown={handleKeyDown}
-        className={getCheckboxStyles()}
-      >
-        {checked && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Icon name="check" size="xs" className={getIconColor()} />
-          </div>
-        )}
-        <input
-          type="checkbox"
-          id={id}
-          checked={checked}
-          disabled={disabled}
-          onChange={handleChange}
-          className="sr-only"
-          aria-hidden="true"
-        />
-      </div>
-      {label && (
-        <label
-          htmlFor={id}
-          className={`text-body-m ${disabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-800 cursor-pointer'}`}
-        >
-          {label}
-        </label>
-      )}
+      {labelPosition === 'left' && labelElement}
+      {checkboxElement}
+      {labelPosition === 'right' && labelElement}
     </div>
   );
 };
