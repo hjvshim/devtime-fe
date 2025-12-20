@@ -23,10 +23,12 @@ const App = () => {
         <Outlet />
       </main>
 
-      {/* Footer */}
-      <footer>
-        <div>© 2025 DevTime. All rights reserved.</div>
-      </footer>
+      {/* Footer - protected 경로에서만 표시 */}
+      {!isPublic && (
+        <footer>
+          <div>© 2025 DevTime. All rights reserved.</div>
+        </footer>
+      )}
     </div>
   );
 };
